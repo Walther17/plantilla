@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/producto")
-@CrossOrigin(origins = "*")
+@CrossOrigin( "http://localhost:4200")
 public class ProductoController {
 
     @Autowired
@@ -24,8 +24,7 @@ public class ProductoController {
 
     @GetMapping("/lista")
     public ResponseEntity<List<Producto>> list(){
-        List<Producto> list = productoService.getAll();
-        return new ResponseEntity(list, HttpStatus.OK);
+        return ResponseEntity.ok(productoService.getAll());
     }
 
     @GetMapping("/detail/{id}")

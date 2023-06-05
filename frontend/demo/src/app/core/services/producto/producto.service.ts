@@ -1,38 +1,44 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Producto } from 'src/app/models/producto';
+import { Producto } from '../../models/producto';
  
+
+const s  = sessionStorage.getItem('AuthToken');
+const headers = new HttpHeaders().set('Authorization', `Bearer ${s}`);
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductoService {
 
   productoURL = 'http://localhost:8080/producto/';
+  
 
   constructor(private httpClient: HttpClient) { }
 
-  public lista(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
+   lista(): Observable<Producto[]> {
+    return this.httpClient.get<Producto[]>(this.productoURL + 'lista', {headers});
   }
 
   public detail(id: number): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`);
+    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`,  {headers});
   }
 
   public detailName(nombre: string): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`);
+    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`,  {headers});
   }
 
   public save(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(this.productoURL + 'create', producto);
+    return this.httpClient.post<any>(this.productoURL + 'create', producto,  {headers});
   }
 
   public update(id: number, producto: Producto): Observable<any> {
-    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto);
+    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto,  {headers});
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`);
+    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`,  {headers});
   }
 }

@@ -55,6 +55,7 @@ export class LoginComponent {
       },
       err => {
         this.isLogged = false;
+        alert('Password or email invalid')
       //  this.errMsj = err.error.message;
       //  this.toastr.error(this.errMsj, 'Fail', {
       //    timeOut: 3000,  positionClass: 'toast-top-center',
