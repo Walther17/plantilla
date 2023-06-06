@@ -15,7 +15,7 @@ import java.util.Date;
 public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
-    // JwtProvider genera el token y valida si el token es válido
+    // JwtProvider genera el token y también valida si el token es válido
     @Value("${jwt.secret}")
     private String secret;
 

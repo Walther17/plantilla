@@ -28,7 +28,7 @@ const routes: Routes = [
         loadChildren: () => import('./producto/producto.module').then(m =>  m.ProductoModule), canActivate: [guard], data: { expectedRol: ['admin', 'user'] } 
       },
 
-    
+     
 
      
       
@@ -59,6 +59,8 @@ const routes: Routes = [
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m =>  m.PageNotFoundModule),
 
   },
+
+ 
 
 ];
 

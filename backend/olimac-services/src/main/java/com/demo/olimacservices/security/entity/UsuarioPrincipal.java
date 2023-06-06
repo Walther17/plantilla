@@ -9,10 +9,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// Gestiona los accesos al sistema según los privilegios
 public class UsuarioPrincipal implements UserDetails {
     private String nombre;
     private String apellido;
-    private String nombreUsuario;
+    private String nombreUsuario; 
     private String email;
     private String password;
     private String estado;
@@ -28,6 +29,7 @@ public class UsuarioPrincipal implements UserDetails {
         this.authorities = authorities;
     }
 
+    // este método asigna los privilegios a cada usuario
     public static UsuarioPrincipal build(Usuario usuario){
         List<GrantedAuthority> authorities =
                 usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol

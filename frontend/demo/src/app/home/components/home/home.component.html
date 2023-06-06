@@ -9,20 +9,23 @@
       <th>Nombre</th>
       <th>Apellido</th>
       <th>Email</th>
-      <th>Actions</th>
-
+      <th scope="col" *ngIf="isAdmin">Editar</th>
+      <th scope="col" *ngIf="isAdmin">Borrar</th>
     </tr>
   </thead>
 
   <tbody>
-    <tr *ngFor="let u of usuarios">
+    <tr  *ngFor="let u of usuarios">
       <td>{{u.nombre}}</td>
       <td>{{u.apellido}}</td>
       <td>{{u.email}}</td>
+
       <td>
-        <button [routerLink]="['/edit-usuario', u.id]"  type="button" class="btn btn-primary" >Update</button>      
-        <button (click)="deleteUsuario(u.id)" type="button"  class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-      </td>
+       <!--  <button [routerLink]="['/edit-usuario', u.id]"  type="button" class="btn btn-primary" >Update</button>  -->     
+        <!-- <button (click)="deleteUsuario(u.id)" type="button"  class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
+        -->
+        <td *ngIf="isAdmin"><button class="btn btn-outline-warning" routerLink="/editar/{{u.id}}"><i class="far fa-edit"></i> Editar</button></td>
+        <button  type="button"  *ngIf="isAdmin" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
 
   </tbody>
 </table>
@@ -37,7 +40,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
       </div>
       <div class="modal-body">
-        <form  [formGroup]="form" (ngSubmit)="createUser2($event)">
+<!--         <form  [formGroup]="form" (ngSubmit)="createUser2($event)">
+ -->          <form  [formGroup]="form" >
 
           <div class="form-outline mb-4">
             <div class="row">
@@ -78,11 +82,12 @@
 
 
             <div class="row">
+            
               <div class="col-md-6">
 
             <label>Rol</label>
             <select class="form-control" formControlName="rol" id="rol" name="rol">
-              <option  [value]="r.id" *ngFor="let r of roles">{{r.rol}}</option>
+              <option   *ngFor="let r of roles">..</option>
             </select>
           </div>
 

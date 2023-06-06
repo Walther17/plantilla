@@ -27,7 +27,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     UserDetailsServiceImpl userDetailsService;
 
 
-    // Este método se ejecuta una vez por cada petición 
+    // Este método se ejecuta una vez por cada petición del cliente
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {
         try {

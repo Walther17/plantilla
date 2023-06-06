@@ -1,5 +1,7 @@
+import { RolNombre } from "./rol-nombre";
+
 export interface Rol{
     id: number;
-    rol: string;
+    rolNombre: RolNombre;
    
 }

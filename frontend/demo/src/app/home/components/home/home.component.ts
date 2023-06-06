@@ -1,12 +1,14 @@
 import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/core/models/usuario.model';
-import { UsuarioService } from 'src/app/core/services/usuario.service';
+import { UsuarioService } from 'src/app/core/services/usuario/usuario.service';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs'
 import { tap } from 'rxjs/operators'
 import { BehaviorSubject } from 'rxjs';
 import { Rol } from 'src/app/core/models/rol.model';
+import { NuevoUsuario } from 'src/app/core/models/nuevo-usuario';
+import { TokenService } from 'src/app/core/services/token/token.service';
 
 declare var $  : any;
 
@@ -17,18 +19,16 @@ declare var $  : any;
 })
 export class HomeComponent implements OnInit {
 
-
-  usuarios$: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
-
   usuarios: Usuario[] ;
 
-  roles: Rol[];
+  roles: string[];
 
   id: number;
 
   form: FormGroup;
-
-  deleteUser: Usuario = {
+  isAdmin = false;
+  
+  /* deleteUser: Usuario = {
     id: 0,
     nombre: '',
     apellido: '',
@@ -40,9 +40,11 @@ export class HomeComponent implements OnInit {
       {
         id: 0,
         rol: '',
-    }
+    } 
+    
   }
 
+  */
 
   subscripcion: Subscription;
   constructor(
@@ -50,9 +52,9 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private activeRoute: ActivatedRoute,
+    private tokenService: TokenService,
   ) { 
-    this.getAllRoles()
+    //this.getAllRoles()
     this.buildForm();
 
 
@@ -61,21 +63,26 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getAllUsuarios();
-    this.subscripcion = this.usuarioService.refresh$.subscribe(() => {
-      this.getAllUsuarios();
-    })
-    this.getAllRoles();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
+   
+  //  this.getAllRoles();
 
 
   }
-
+/* 
   getAllRoles(): void {
     this.usuarioService.getAllRoles().subscribe(dato => {
       this.roles= dato;
       console.log(dato)
     });
   }
-
+ */
 
 
 
@@ -88,7 +95,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  deleteUsuario(id: number) {
+ /*  deleteUsuario(id: number) {
  
 
     this.usuarioService.deleteUsuario(id, this.deleteUser).subscribe((dato) => {
@@ -98,9 +105,9 @@ export class HomeComponent implements OnInit {
     });
 
   
-  }
+  } */
 
-  createUser2(event: Event) {
+ /*  createUser2(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
       const user = this.form.value;
@@ -111,7 +118,7 @@ export class HomeComponent implements OnInit {
       });
     }
 
-  }
+  } */
 
   private buildForm() {
     this.form = this.formBuilder.group({
@@ -125,12 +132,5 @@ export class HomeComponent implements OnInit {
       rol:['', [Validators.required]]
     });
   }
-
-
- 
-
-  // INSTALAR ICONS DE BOOSTRAPS
-
-
 
 }

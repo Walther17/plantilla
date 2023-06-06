@@ -13,7 +13,7 @@ import java.io.IOException;
 @Component
 public class JwtEntryPoint implements AuthenticationEntryPoint {
 
-    // JwtEntryPoint devuelve error en caso de que el token no sea válido
+    // JwtEntryPoint devuelve error 401 no autorizado en caso de que el token no sea válido
     private final static Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class);
 
     @Override
