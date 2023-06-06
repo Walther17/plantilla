@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
-// JwtDto se encarga de devolver el JWT cuando se haces el login
+// JwtDto se encarga de devolver el token cuando se haces el login
 @Data
 @NoArgsConstructor
 public class JwtDto { // DTO Data Transfer Object
