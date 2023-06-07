@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { NuevoUsuario } from '../../models/nuevo-usuario';
 import { LoginUsuario } from '../../models/login-usuario';
 import { JwtDTO } from '../../models/jwt-dto';
+import { environment } from 'src/environments/environments';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { JwtDTO } from '../../models/jwt-dto';
 })
 export class AuthService {
 
-  authURL = 'http://localhost:8080/auth/';
+  authURL = environment.authURL
 
   constructor(private httpClient: HttpClient) { }
 

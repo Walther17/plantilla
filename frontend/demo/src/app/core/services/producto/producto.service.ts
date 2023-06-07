@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Producto } from '../../models/producto';
+import { environment } from 'src/environments/environments';
  
 
 const s  = sessionStorage.getItem('AuthToken');
@@ -13,8 +14,9 @@ const headers = new HttpHeaders().set('Authorization', `Bearer ${s}`);
 
 export class ProductoService {
 
-  productoURL = 'http://localhost:8080/producto/';
+  productoUR = environment.productoURL
   
+  productoURL = 'http://localhost:8080/producto/'
 
   constructor(private httpClient: HttpClient) { }
 

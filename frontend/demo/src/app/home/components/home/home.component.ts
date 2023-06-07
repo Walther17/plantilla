@@ -62,14 +62,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getAllUsuarios();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });
-
+    
    
   //  this.getAllRoles();
 

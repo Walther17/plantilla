@@ -9,27 +9,16 @@ import { TokenService } from 'src/app/core/services/token/token.service';
 export class HeaderComponent implements OnInit {
 
   isLogged = false;
-  nombreUsuario = '';
+  isAdmin = false
   constructor(private tokenService: TokenService) { }
 
   ngOnInit() {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+   this.isLogged = this.tokenService.isLogged();
+   this.isAdmin  = this.tokenService.isAdmin();
   }
 
   onLogOut(): void {
     this.tokenService.logOut();
-    window.location.reload();
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.nombreUsuario = this.tokenService.getUserName();
-      console.log(this.nombreUsuario)
-    } else {
-      this.isLogged = false;
-      this.nombreUsuario = '';
-    }
+   
   }
 }

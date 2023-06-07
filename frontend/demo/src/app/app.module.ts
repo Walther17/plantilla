@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { interceptorProvider } from './core/services/prod/prod-interceptor.service';
+import { interceptorProvider } from './core/services/interceptor/prod-interceptor.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
