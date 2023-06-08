@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Producto } from '../../models/producto';
-import { environment } from 'src/environments/environments';
- 
+import { environment } from 'src/assets/environments/environment';
 
 const s  = sessionStorage.getItem('AuthToken');
 const headers = new HttpHeaders().set('Authorization', `Bearer ${s}`);
