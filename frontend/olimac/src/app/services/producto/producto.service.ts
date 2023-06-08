@@ -20,7 +20,7 @@ export class ProductoService {
   constructor(private httpClient: HttpClient) { }
 
    lista(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'lista', {headers});
+    return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
   }
 
   public detail(id: number): Observable<Producto> {

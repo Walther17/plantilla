@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<div class="container d-flex justify-content-center">
+<!-- <div class="container d-flex justify-content-center">
         <div class="card-header">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -11,7 +11,7 @@
                 </li>
 
             </ul>
-        </div>
+        </div> -->
       <!--   <div class="card-body">
             <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                 <div class="form-group">
@@ -33,15 +33,13 @@
 
         
 
-    </div>
+  <!--   </div> -->
 
-    <div class="text-center" *ngIf="isLogged; else loggedOut">
-        <h2>Ya has iniciado sesión</h2>
-    </div>
+    <div *ngIf="isLogged; else loggedOut">
+<!--         <h2>Ya has iniciado sesión</h2>
+ -->    </div>
     
     <ng-template #loggedOut>
-
-
 <section class="vh-100" style="background-color: #272929;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
