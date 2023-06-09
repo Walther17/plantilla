@@ -7,11 +7,11 @@
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link text-white" *ngIf="isAdmin" href="/home" routerLink="/home" type="button">Home </a>
+        <a class="nav-link text-white" *ngIf="isLogged" href="#" routerLink="/home" type="button">Home </a>
       </li>
 
       <li class="nav-item active" *ngIf="isLogged">
-        <a class="nav-link text-white" href="/lista-productos" routerLink="/home" type="button">Productos </a>
+        <a class="nav-link text-white" href="#" routerLink="/home" type="button">Productos </a>
       </li>
 
 
@@ -22,19 +22,27 @@
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-      <ul>
-
-        <li class="nav-item active" *ngIf="!isLogged">
-          <a class="nav-link text-white" type="button">Iniciar Sesión</a>
+    </form>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a *ngIf="!isLogged"  class="btn btn-outline-success my-2 my-sm-0" href="#" routerLink="/login" type="button">Iniciar Sesión </a>
         </li>
 
-        <li  class="nav-item active" *ngIf="isLogged" (click)="onLogOut()">
-          <a class="nav-link text-white" type="button">Cerrar Sesión</a>
+
+        <li class="nav-item active">
+          <a *ngIf="isLogged"   class="btn btn-outline-success my-2 my-sm-0" href="#" (click)="onLogOut()" type="button">Cerrar Sesión </a>
         </li>
+
 
       </ul>
 
+     <!--  <a *ngIf="!isLogged"  href="#" class="btn btn-outline-success my-2 my-sm-0" routerLink="/login" type="button">
+        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+
+        <a *ngIf="isLogged"  href="#"  class="btn btn-outline-success my-2 my-sm-0" (click)="onLogOut()" type="button">
+          <i class="fas fa-sign-in-alt"></i>
+          <i class="fas fa-door-open"></i> Cerrar Sesión</a> -->
     </form>
 
   </div>

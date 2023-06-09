@@ -44,7 +44,7 @@ export class LoginComponent {
         this.tokenService.setToken(data.token);
        
        
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       },
       err => {
         this.isLogged = false;

@@ -15,7 +15,6 @@ export class ProductoService {
 
   productoURL = environment.productoURL
   
- // productoURL = 'http://localhost:8080/producto/'
 
   constructor(private httpClient: HttpClient) { }
 

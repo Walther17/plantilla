@@ -25,7 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
   
     ReactiveFormsModule,
   ],
-  providers: [interceptorProvider],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
