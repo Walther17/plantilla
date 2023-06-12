@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Producto } from 'src/app/core/models/producto';
 import { ProductoService } from 'src/app/core/services/producto/producto.service';
 import { TokenService } from 'src/app/core/services/token/token.service';
 
 @Component({
   selector: 'app-lista-producto',
   templateUrl: './lista-producto.component.html',
-  styleUrls: ['./lista-producto.component.scss']
+  styleUrls: ['./lista-producto.component.css']
 })
 export class ListaProductoComponent  implements OnInit {
-
 
   productos: any ;
   isAdmin = false;
@@ -18,7 +16,6 @@ export class ListaProductoComponent  implements OnInit {
   constructor(
     private productoService: ProductoService,
     private toastr: ToastrService,
-    private tokenService: TokenService
   ) { }
 
   ngOnInit() {

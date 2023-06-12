@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Producto } from '../../models/producto';
 import { environment } from 'src/assets/environments/environment';
 
+ 
 const s  = localStorage.getItem('AuthToken');
 const headers = new HttpHeaders().set('Authorization', `Bearer ${s}`);
 

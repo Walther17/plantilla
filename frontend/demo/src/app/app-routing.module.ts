@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ProdGuardService as guard } from './core/services/guardian/prod-guard.service';
 import { LoginGuard } from './core/services/guardian/login.guard';
+import { IndexComponent } from './index/components/index/index.component';
 
 const routes: Routes = [
 
@@ -14,8 +15,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'index',
-        pathMatch: 'full',
+        component: IndexComponent,
       },
 
       {

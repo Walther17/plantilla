@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { Producto } from '../../models/producto';
 import { environment } from 'src/environments/environments';
  
-
-const s  = sessionStorage.getItem('AuthToken');
+const s  = localStorage.getItem('AuthToken');
 const headers = new HttpHeaders().set('Authorization', `Bearer ${s}`);
 
 @Injectable({
@@ -16,12 +15,11 @@ export class ProductoService {
 
   productoURL = environment.productoURL
   
- // productoURL = 'http://localhost:8080/producto/'
 
   constructor(private httpClient: HttpClient) { }
 
    lista(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'lista', {headers});
+    return this.httpClient.get<Producto[]>(this.productoURL + 'lista',  {headers});
   }
 
   public detail(id: number): Observable<Producto> {
