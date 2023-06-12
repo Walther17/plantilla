@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto/producto.service';
 import { TokenService } from 'src/app/services/token/token.service';
 
@@ -11,7 +10,7 @@ import { TokenService } from 'src/app/services/token/token.service';
 })
 export class ListaProductoComponent  implements OnInit {
 
-  productos: any ;
+  productos: any;
   isAdmin = false;
 
   constructor(
@@ -22,7 +21,7 @@ export class ListaProductoComponent  implements OnInit {
 
   ngOnInit() {
     this.cargarProductos();
-    
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   cargarProductos(): void {

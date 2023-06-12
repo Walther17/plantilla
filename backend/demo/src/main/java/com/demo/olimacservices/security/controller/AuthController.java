@@ -92,12 +92,12 @@ public class AuthController {
     }
 
 
-    @GetMapping("usuarios")
+    @GetMapping("/usuarios")
     private List<Usuario> getAllUsers() {
       return usuarioService.getAll();
     }
 
-    @GetMapping("roles")
+    @GetMapping("/roles")
     private List<Rol> getAllRoles() {
       return rolService.getAll();
     }

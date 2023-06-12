@@ -33,7 +33,7 @@ public class JwtProvider {
                 .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000))
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS512, secret.getBytes())
                 .compact();
     }
 

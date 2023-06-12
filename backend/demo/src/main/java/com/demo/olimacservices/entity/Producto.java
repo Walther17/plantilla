@@ -33,7 +33,6 @@ public class Producto {
 
     @Column(name = "precio")
     @NotNull(message = "El campo precio no puede ser nulo")
-    @NotBlank(message = "El campo precio no puede estar vacio")
     private float precio;
 
     public Producto(String nombre, float precio) {

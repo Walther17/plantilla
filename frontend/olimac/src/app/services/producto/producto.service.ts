@@ -12,33 +12,33 @@ const headers = new HttpHeaders().set('Authorization', `Bearer ${s}`);
 })
 
 export class ProductoService {
-
-  productoURL = environment.productoURL
   
+
+  productoURL = environment.productoURL;
 
   constructor(private httpClient: HttpClient) { }
 
-   lista(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'lista',  {headers});
+  public lista(): Observable<Producto[]> {
+    return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
   }
 
   public detail(id: number): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`,  {headers});
+    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`);
   }
 
   public detailName(nombre: string): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`,  {headers});
+    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`);
   }
 
   public save(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(this.productoURL + 'create', producto,  {headers});
+    return this.httpClient.post<any>(this.productoURL + 'create', producto);
   }
 
   public update(id: number, producto: Producto): Observable<any> {
-    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto,  {headers});
+    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`,  {headers});
+    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`);
   }
 }

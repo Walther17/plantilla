@@ -15,8 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
-
+import { ToastrModule } from 'ngx-toastr';
+import { interceptorProvider } from './services/interceptor/prod-interceptor.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     DetalleProductoComponent,
     EditarProductoComponent,
     NuevoProductoComponent,
-    LoginComponent, RegistroComponent
+    LoginComponent, RegistroComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ToastrService],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,9 +10,8 @@ import { ProductoService } from 'src/app/services/producto/producto.service';
   styleUrls: ['./nuevo-producto.component.scss']
 })
 export class NuevoProductoComponent implements OnInit {
-
   nombre = '';
-  precio: number ;
+  precio: number;
 
   constructor(
     private productoService: ProductoService,
@@ -36,7 +35,6 @@ export class NuevoProductoComponent implements OnInit {
         this.toastr.error(err.error.mensaje, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        // this.router.navigate(['/']);
       }
     );
   }
