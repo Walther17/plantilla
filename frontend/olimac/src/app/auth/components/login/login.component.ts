@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Falsy } from 'rxjs';
 import { LoginUsuario } from 'src/app/models/login-usuario';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenService } from 'src/app/services/token/token.service';
@@ -12,12 +13,11 @@ import { TokenService } from 'src/app/services/token/token.service';
 })
 export class LoginComponent implements OnInit {
 
-  isLogged = false;
-  isLoginFail = false;
   loginUsuario: LoginUsuario;
   nombreUsuario: string;
   password: string;
-  roles: string[] = [];
+  isLogged = true;
+
   errMsj: string;
 
   constructor(
@@ -28,32 +28,31 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.isLoginFail = false;
-    }
+   // this.isLogged = this.tokenService.isLogged();
+   
+  console.log(this.isLogged)
+  
   }
 
   onLogin(): void {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(
       data => {
-        this.isLogged = true;
-
         this.tokenService.setToken(data.token);
-       
-       
+        console.log(data)
         this.router.navigate(['/']);
       },
       err => {
-        this.isLogged = false;
-        this.errMsj = err.error.message;
+        this.errMsj = err.error.mensaje;
         this.toastr.error(this.errMsj, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        // console.log(err.error.message);
       }
     );
+  
+  }
+  onLogOut(): void {
+    this.tokenService.logOut();
   }
 
 }

@@ -1,4 +1,10 @@
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+  }
 
+  
 h2 {  
 	padding: 25px 0;  
 	text-align: center;  
@@ -8,11 +14,13 @@ h2 {
 	footer {  
 	 background: #272929;  
 	  color: white;  
-	  height: 430px;
+	  height: 300px;
 	  width: 100%;
 	  padding: 1em;
 	  align-self: flex-end;
 	  padding-top: 40px;
+	  margin-top: auto;	
+	  margin-top: 200px;
 	}  
 	footer a {  
 	  color: #fff;  
@@ -117,3 +125,5 @@ h2 {
 	.col-md-3 , ul li {
 		cursor: pointer;
 	}
+
+	
