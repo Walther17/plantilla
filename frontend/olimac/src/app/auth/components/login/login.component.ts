@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginUsuario: LoginUsuario;
   nombreUsuario: string;
   password: string;
-  isLogged = true;
+  isLogged = false;
 
   errMsj: string;
 
@@ -28,8 +28,12 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   // this.isLogged = this.tokenService.isLogged();
-   
+  this.isLogged = this.tokenService.isLogged();
+  if (this.isLogged){
+    this.router.navigate(["/"])
+  }else{
+    this.router.navigate(["/login"])
+  }
   console.log(this.isLogged)
   
   }
