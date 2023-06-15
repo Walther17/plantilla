@@ -30,29 +30,10 @@
         <td>{{usuario.estado}}</td>
         <td><button class="btn btn-outline-primary" routerLink="/detalleUser/{{usuario.id}}"><i class="far fa-eye"></i> Ver</button></td>
         <td *ngIf="isAdmin"><button class="btn btn-outline-warning" routerLink="/editarUser/{{usuario.id}}"><i class="far fa-edit"></i> Editar</button></td>
-        <td ><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" ><i class="far fa-trash-alt"></i> Eliminar</button></td>
+        <td ><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" ><i class="far fa-trash-alt"></i> Eliminar</button></td>
 
 
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Deseas Eliminar este registro?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button type="button" (click)="borrar(usuario.id)" *ngIf="isAdmin" class="btn btn-primary">Si</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </tr>
     </tbody>
@@ -60,6 +41,26 @@
 
 </div>
 
+
+<div *ngFor="let usuario of usuarios" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deseas Eliminar este registro?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div  class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="submit" (click)="borrar(usuario.id)" data-dismiss="modal" *ngIf="isAdmin" class="btn btn-primary">Si</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <app-footer></app-footer>
