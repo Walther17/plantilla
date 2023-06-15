@@ -9,6 +9,9 @@ import { DetalleProductoComponent } from './producto/components/detalle-producto
 import { NuevoProductoComponent } from './producto/components/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './producto/components/editar-producto/editar-producto.component';
 import { ListaUsuariosComponent } from './usuarios/components/lista-usuarios/lista-usuarios.component';
+import { DetalleUsuariosComponent } from './usuarios/components/detalle-usuarios/detalle-usuarios.component';
+import { EditarUsuariosComponent } from './usuarios/components/editar-usuarios/editar-usuarios.component';
+import { NuevoUsuarioComponent } from './usuarios/components/nuevo-usuario/nuevo-usuario.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -19,6 +22,11 @@ const routes: Routes = [
   { path: 'nuevo', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
   { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
   { path: 'listar-usuarios', component: ListaUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'detalleUser/:id', component: DetalleUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'editarUser/:id', component: EditarUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+
+  { path: 'nuevoUser', component: NuevoUsuarioComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

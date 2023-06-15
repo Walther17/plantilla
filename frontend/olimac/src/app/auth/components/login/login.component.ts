@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },
       err => {
+        alert("Error, password or user inavlid")
         this.errMsj = err.error.mensaje;
         this.toastr.error(this.errMsj, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',

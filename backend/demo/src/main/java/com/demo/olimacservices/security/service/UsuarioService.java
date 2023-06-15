@@ -28,15 +28,61 @@ public class UsuarioService {
     }
 
     public List<Usuario> getAll(){
-        return usuarioRepository.findAll();
+         List<Usuario> usuario = usuarioRepository.getAllUsers();
+        if (usuario != null) {
+            return usuario;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay datos");
+        }    
     }
 
     public boolean existsByEmail(String email){
         return usuarioRepository.existsByEmail(email);
     }
 
-    public void save(Usuario usuario){
+    public Usuario save(Usuario usuario){
         usuario.setEstado("A");
-        usuarioRepository.save(usuario);
+       return  usuarioRepository.save(usuario);
     }
+     public Usuario save2(Usuario usuario){
+       return  usuarioRepository.save(usuario);
+    }
+
+    public void setEstadoNull(Integer id) {
+            usuarioRepository.setEstadoNull(id);
+
+    }
+
+    public Usuario updateUsuario(Usuario usuario, Integer id) {
+
+        Optional<Usuario> existingUsuario = usuarioRepository.findById(id);
+
+        if (existingUsuario != null && existingUsuario.get().getEstado() != null){
+            Usuario userUpdate = existingUsuario.get();
+               
+            userUpdate.setNombre(usuario.getNombre());
+            userUpdate.setApellido(usuario.getApellido());
+            userUpdate.setEmail(usuario.getEmail());
+            userUpdate.setEstado(usuario.getEstado());
+            userUpdate.setNombreUsuario(usuario.getNombreUsuario());
+            userUpdate.setPassword(usuario.getPassword()); 
+            userUpdate.setRoles(usuario.getRoles());
+    
+            return usuarioRepository.save(userUpdate);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+            "No se encontró el usuario con el ID especificado: " + id);
+        }
+        
+    }
+
+    
+    public boolean existsById(int id){
+        return usuarioRepository.existsById(id);
+    }
+
+    public Usuario getUsuarioById(Integer id) {
+        return usuarioRepository.getUsuarioById(id);
+    }
+
 }

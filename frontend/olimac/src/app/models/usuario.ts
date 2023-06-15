@@ -1,5 +1,5 @@
 export class Usuario {
-    
+    id : number;
     nombre: string;
     apellido: string;
     nombreUsuario: string;
@@ -10,7 +10,7 @@ export class Usuario {
         this.nombre = nombre;
         this.apellido = apellido
         this.nombreUsuario = nombreUsuario;
-        this.estado = "Activo";
+        this.estado = estado;
         this.email = email;
         this.password = password;
     }

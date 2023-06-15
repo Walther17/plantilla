@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Usuario } from 'src/app/models/usuario';
 import { TokenService } from 'src/app/services/token/token.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuario.service';
 
@@ -12,6 +13,17 @@ export class ListaUsuariosComponent {
 
    usuarios: any;
   isAdmin = false;
+  deleteUsuario:  Usuario = {
+    
+    id: 0,
+    nombre: '',
+    apellido: '',
+    nombreUsuario: '',
+    estado: '',
+    email: '',
+    password: '',
+   
+    }
 
   constructor(
     private usuariosService: UsuariosService,
@@ -34,5 +46,23 @@ export class ListaUsuariosComponent {
       }
     );
   }
+
+  
+  borrar(id: number) {
+    this.usuariosService.deleteUsuario(id, this.deleteUsuario).subscribe(
+      data => {
+        this.toastr.success('Producto Eliminado', 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.cargarProductos();
+      },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center',
+        });
+      }
+    );
+  }
+  
 
 }

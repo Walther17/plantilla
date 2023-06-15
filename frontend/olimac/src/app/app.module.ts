@@ -19,6 +19,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { interceptorProvider } from './services/interceptor/prod-interceptor.service';
 import { FooterComponent } from './footer/footer.component';
 import { ListaUsuariosComponent } from './usuarios/components/lista-usuarios/lista-usuarios.component';
+import { DetalleUsuariosComponent } from './usuarios/components/detalle-usuarios/detalle-usuarios.component';
+import { EditarUsuariosComponent } from './usuarios/components/editar-usuarios/editar-usuarios.component';
+import { NuevoUsuarioComponent } from './usuarios/components/nuevo-usuario/nuevo-usuario.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,7 @@ import { ListaUsuariosComponent } from './usuarios/components/lista-usuarios/lis
     DetalleProductoComponent,
     EditarProductoComponent,
     NuevoProductoComponent,
-    LoginComponent, RegistroComponent, FooterComponent, ListaUsuariosComponent
+    LoginComponent, RegistroComponent, FooterComponent, ListaUsuariosComponent, DetalleUsuariosComponent, EditarUsuariosComponent, NuevoUsuarioComponent
   ],
   imports: [
     BrowserModule,

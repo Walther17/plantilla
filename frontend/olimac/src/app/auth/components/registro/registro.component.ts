@@ -35,6 +35,7 @@ export class RegistroComponent implements OnInit {
     this.nuevoUsuario = new NuevoUsuario(this.nombre, this.nombreUsuario, this.apellido, this.estado, this.email, this.password);
     this.authService.nuevo(this.nuevoUsuario).subscribe(
       data => {
+        alert(" User create!!!")
         this.toastr.success(data.mensaje, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
@@ -42,6 +43,7 @@ export class RegistroComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       err => {
+        alert("Error, password or user inavlid")
         this.errMsj = err.error.mensaje;
         this.toastr.error(this.errMsj, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
