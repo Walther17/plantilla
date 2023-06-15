@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<div class="container">
+  <table class="table ">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Nombre de Usuario</th>
+        <th scope="col">Email</th>
+        <th scope="col">Estado</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.nombre}}  {{usuario.apellido}} </td>
+        <td>{{usuario.nombreUsuario}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.estado}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<app-footer></app-footer>

@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { interceptorProvider } from './services/interceptor/prod-interceptor.service';
 import { FooterComponent } from './footer/footer.component';
+import { ListaUsuariosComponent } from './usuarios/components/lista-usuarios/lista-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FooterComponent } from './footer/footer.component';
     DetalleProductoComponent,
     EditarProductoComponent,
     NuevoProductoComponent,
-    LoginComponent, RegistroComponent, FooterComponent
+    LoginComponent, RegistroComponent, FooterComponent, ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,

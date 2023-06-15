@@ -6,7 +6,10 @@
         <a class="nav-link" *ngIf="isLogged" routerLink="/"><i class="fas fa-home"></i> Inicio</a>
       </li>
       <li class="nav-item" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/lista"><i class="far fa-list-alt"></i> Lista</a>
+        <a class="nav-link" routerLink="/listar-usuarios"><i class="far fa-list-alt"></i>Usuarios</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/lista"><i class="far fa-list-alt"></i>Productos</a>
       </li>
       <li class="nav-item" *ngIf="isAdmin">
         <a class="nav-link" routerLink="/nuevo"><i class="fas fa-plus-circle"></i> Nuevo</a>

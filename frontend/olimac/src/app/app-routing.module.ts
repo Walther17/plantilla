@@ -8,6 +8,7 @@ import { ProdGuardService as guard } from './services/guards/prod-guard.service'
 import { DetalleProductoComponent } from './producto/components/detalle-producto/detalle-producto.component';
 import { NuevoProductoComponent } from './producto/components/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './producto/components/editar-producto/editar-producto.component';
+import { ListaUsuariosComponent } from './usuarios/components/lista-usuarios/lista-usuarios.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
   { path: 'nuevo', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
   { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+  { path: 'listar-usuarios', component: ListaUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

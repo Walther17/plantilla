@@ -39,27 +39,4 @@ public class UsuarioService {
         usuario.setEstado("A");
         usuarioRepository.save(usuario);
     }
-
-   /*  public Usuario updateUsuario(Usuario usuario, Integer id){
-
-        Optional<Usuario> userExist = usuarioRepository.findById(id);
-
-        if (userExist !=null) {
-
-            Usuario userUpdate = userExist.get();
-            userUpdate.setNombre(usuario.getNombre());
-            userUpdate.setApellido(usuario.getApellido());
-            userUpdate.setEmail(usuario.getEmail());
-            userUpdate.setNombreUsuario(usuario.getNombreUsuario());
-            userUpdate.setPassword(usuario.getPassword());
-            userUpdate.setEstado(usuario.getEstado());
-
-
-            return usuarioRepository.save(userUpdate);
-        }else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-            "No se encontró el usuario con el ID especificado: " + id);
-        }
-    }
-    */
 }
