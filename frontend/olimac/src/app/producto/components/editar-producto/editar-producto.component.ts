@@ -28,7 +28,7 @@ export class EditarProductoComponent  implements OnInit {
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 2000,  positionClass: 'toast-top-center',
         });
         this.router.navigate(['/']);
       }
@@ -40,13 +40,13 @@ export class EditarProductoComponent  implements OnInit {
     this.productoService.update(id, this.producto).subscribe(
       data => {
         this.toastr.success('Producto Actualizado', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+          timeOut: 2000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 2000,  positionClass: 'toast-top-center',
         });
         // this.router.navigate(['/']);
       }

@@ -11,10 +11,10 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Nombres</th>
-        <th scope="col">Nombre de Usuario</th>
-        <th scope="col">Email</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Ver</th>
+<!--         <th scope="col">Nombre de Usuario</th>
+ -->        <th scope="col">Email</th>
+<!--         <th scope="col">Estado</th>
+ -->        <th scope="col">Ver</th>
 
         <th scope="col" *ngIf="isAdmin">Editar</th>
         <th scope="col" *ngIf="isAdmin">Borrar</th>
@@ -25,12 +25,12 @@
       <tr *ngFor="let usuario of usuarios">
         <td>{{usuario.id}}</td>
         <td>{{usuario.nombre}}  {{usuario.apellido}} </td>
-        <td>{{usuario.nombreUsuario}}</td>
-        <td>{{usuario.email}}</td>
-        <td>{{usuario.estado}}</td>
-        <td><button class="btn btn-outline-primary" routerLink="/detalleUser/{{usuario.id}}"><i class="far fa-eye"></i> Ver</button></td>
+<!--         <td>{{usuario.nombreUsuario}}</td>
+ -->        <td>{{usuario.email}}</td>
+<!--         <td>{{usuario.estado}}</td>
+ -->        <td><button class="btn btn-outline-primary" routerLink="/detalleUser/{{usuario.id}}"><i class="far fa-eye"></i> Ver</button></td>
         <td *ngIf="isAdmin"><button class="btn btn-outline-warning" routerLink="/editarUser/{{usuario.id}}"><i class="far fa-edit"></i> Editar</button></td>
-        <td ><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" ><i class="far fa-trash-alt"></i> Eliminar</button></td>
+        <td  *ngIf="isAdmin" ><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" ><i class="far fa-trash-alt"></i> Eliminar</button></td>
 
 
 
@@ -51,9 +51,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
+   
       <div  class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
         <button type="submit" (click)="borrar(usuario.id)" data-dismiss="modal" *ngIf="isAdmin" class="btn btn-primary">Si</button>

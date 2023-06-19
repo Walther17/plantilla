@@ -27,13 +27,13 @@ export class NuevoProductoComponent implements OnInit {
     this.productoService.save(producto).subscribe(
       data => {
         this.toastr.success('Producto Creado', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+          timeOut: 2000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 2000,  positionClass: 'toast-top-center',
         });
       }
     );

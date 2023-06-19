@@ -28,7 +28,7 @@ export class EditarUsuariosComponent {
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 2000,  positionClass: 'toast-top-center',
         });
         this.router.navigate(['/']);
       }
@@ -40,13 +40,13 @@ export class EditarUsuariosComponent {
     this.usuarioService.updateUsuario(id, this.usuario).subscribe(
       data => {
         this.toastr.success('Producto Actualizado', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+          timeOut: 2000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/listar-usuarios']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 2000,  positionClass: 'toast-top-center',
         });
         // this.router.navigate(['/']);
       }

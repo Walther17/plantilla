@@ -52,13 +52,13 @@ export class ListaUsuariosComponent {
     this.usuariosService.deleteUsuario(id, this.deleteUsuario).subscribe(
       data => {
         this.toastr.success('Producto Eliminado', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+          timeOut: 2000, positionClass: 'toast-top-center'
         });
         this.cargarProductos();
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000, positionClass: 'toast-top-center',
+          timeOut: 2000, positionClass: 'toast-top-center',
         });
       }
     );

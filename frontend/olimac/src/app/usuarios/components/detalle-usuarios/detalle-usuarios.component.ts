@@ -26,7 +26,7 @@ export class DetalleUsuariosComponent {
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 2000,  positionClass: 'toast-top-center',
         });
         this.volver();
       }
